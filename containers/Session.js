@@ -38,33 +38,41 @@ class Session extends React.Component {
     }
 
     render() {
+        let divStyle = {
+            padding: '5px'
+        }
         return(
-            <div id="sessionInfo">
-                <LabelField
-                    forText={"username"}
-                    infoText={USERNAME}
-                />
-                <InputField
-                    placeholderText={USERNAME}
-                    attrID={"username"}
-                    inputType="text"
-                    onBlurEvent={this.handleBlur}
-                /> <br/>
-                <LabelField
-                    forText={"password"}
-                    infoText={PASSWORD}
-                />
-                <InputField
-                    placeholderText={PASSWORD}
-                    attrID={"password"}
-                    inputType="password"
-                    onBlurEvent={this.handleBlur}
-                /> <br/>
+            <div id="sessionInfo" style={ {textAlign: 'center', paddingTop: '10%'} }>
+                <div style={divStyle}>
+                    <LabelField
+                        forText={"username"}
+                        infoText={USERNAME}
+                    />
+                    <InputField
+                        placeholderText={USERNAME}
+                        attrID={"username"}
+                        inputType="text"
+                        onBlurEvent={this.handleBlur}
+                    />
+                </div>
+                <div style={divStyle}>
+                    <LabelField
+                        forText={"password"}
+                        infoText={PASSWORD}
+                    />
+                    <InputField
+                        placeholderText={PASSWORD}
+                        attrID={"password"}
+                        inputType="password"
+                        onBlurEvent={this.handleBlur}
+                    />
+                </div>
                 <Button
                     attrID="signIn"
                     buttonType="button"
                     buttonText={SIGN_IN}
                     onclickEvent={this.handleClick}
+                    elementStyle={ {backgroundColor: '#61DAFB'} }
                 />
             </div>
         );
