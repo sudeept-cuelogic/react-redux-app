@@ -2,7 +2,7 @@ import { LOGIN, LOGOUT } from '../constants/actionTypes';
 
 const initialState = {
     session: {
-        user: '',
+        user: 'test_user1',
         signedInAt: null
     }
 }

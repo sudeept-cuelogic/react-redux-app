@@ -3,7 +3,7 @@ import React from 'react';
 export default class WorkPanel extends React.Component {
     render() {
         return(
-            <div>
+            <div style={ { backgroundColor: 'aliceblue', float: 'left', width: '80%'} }>
                 <table>
                     <tbody>
                         <tr>
