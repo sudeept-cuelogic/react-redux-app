@@ -7,9 +7,8 @@ import InputField from '../components/InputField';
 import LabelField from '../components/LabelField';
 
 const mapDispatchToProps = dispatch => ({
-    onLogin: () => {
-        debugger
-        console.log('Login button clicked');
+    handleClick: username => {
+        console.log('username', username);
     }
 })
 
@@ -20,13 +19,22 @@ class Session extends React.Component {
             username: '',
             password: ''
         },
-        this.handleBlur = this.handleBlur.bind(this)
+        this.handleBlur = this._handleBlur.bind(this),
+        this.handleClick = this._handleClick.bind(this)
     }
 
-    handleBlur = event => {
+    _handleBlur = event => {
         let newState = {};
         newState[event.target.id] = event.target.value;
         this.setState(newState);
+    }
+
+    _handleClick = event => {
+        let userObj = this.props.usersList.filter(user => user.username === this.state.username)[0];
+        (userObj && userObj.password === this.state.password) ?
+            this.props.dispatch(logIn(userObj.username))
+        :
+            console.log('session invalid');
     }
 
     render() {
@@ -56,11 +64,11 @@ class Session extends React.Component {
                     attrID="signIn"
                     buttonType="button"
                     buttonText={SIGN_IN}
-                    onclickEvent={this.props.onLogin.bind(this)}
+                    onclickEvent={this.handleClick}
                 />
             </div>
         );
     }
 }
 
-export default connect(() => ({}), mapDispatchToProps)(Session);
+export default connect(state => state)(Session);

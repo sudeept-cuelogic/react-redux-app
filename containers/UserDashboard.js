@@ -1,11 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import Header from '../components/Header';
 
-export default class UserDashboard extends React.Component {
+class UserDashboard extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return(
-            <div>
-                <p>User Dashboard</p>
+            <div id="userDashboard">
+                <Header username={this.props.session.user} />
             </div>
         );
     }
 }
+
+export default connect(() => ({}), () => ({}))(UserDashboard);

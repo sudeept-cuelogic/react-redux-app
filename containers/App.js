@@ -12,19 +12,18 @@ const mapStateToProps = state => {
     })
 }
 
-var isUserSessionPresent = (session) => {
-    _.isEmpty(session.user)
-}
-
 class App extends React.Component {
     render() {
         if (_.isEmpty(this.props.session.user)) {
             return(
-                <Session />
+                <Session usersList={this.props.usersList} />
             );
         } else {
             return (
-                <UserDashboard />
+                <UserDashboard
+                    session={this.props.session}
+                    usersList={this.props.usersList}
+                />
             )
         }
     }
