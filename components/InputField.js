@@ -7,6 +7,7 @@ export default class InputField extends React.Component {
                 type={this.props.inputType}
                 placeholder={this.props.placeholderText}
                 id={this.props.attrID}
+                onBlur={this.props.onBlurEvent}
             />
         );
     }
