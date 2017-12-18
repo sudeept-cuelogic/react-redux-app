@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
+import NavPanel from '../components/NavPanel'
+import WorkPanel from './WorkPanel';
 
 class UserDashboard extends React.Component {
     constructor(props) {
@@ -10,7 +12,9 @@ class UserDashboard extends React.Component {
     render() {
         return(
             <div id="userDashboard">
-                <Header username={this.props.session.user} />
+                <Header />
+                <NavPanel username={this.props.session.user} />
+                <WorkPanel usersList={this.props.usersList} />
             </div>
         );
     }

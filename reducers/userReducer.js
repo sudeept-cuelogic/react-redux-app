@@ -8,7 +8,7 @@ const _generateUsers = () => {
         usersList.push(
             {
                 username: `test_user${val}`,
-                email: 'test_user${val}@reactapp.com',
+                email: `test_user${val}@reactapp.com`,
                 password: `test_user${val}`,
                 age: (val + 10),
                 gender: ((val % 2 == 0) ? 'M' : 'F')
