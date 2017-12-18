@@ -1,9 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export default class App extends React.Component {
+import InputField from '../components/InputField'
+import Session from './Session';
+
+class App extends React.Component {
     render() {
         return(
-            <p>This is react app starting</p>
+            <Session />
         );
     }
 }
+
+export default connect(state => state)(App);
