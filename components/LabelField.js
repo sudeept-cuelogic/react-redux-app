@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const LabelField = props => {
-    return(
-        <label htmlFor={props.forText}> {props.infoText} </label>
-    );
+export default class LabelField extends React.Component {
+    render() {
+        return(
+            <label htmlFor={this.props.forText}> {this.props.infoText} </label>
+        );
+    }
 }
-
-export default connect(() => ({}), () => ({}))(LabelField);

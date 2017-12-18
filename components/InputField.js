@@ -1,14 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
-const InputField = props => {
-    return(
-        <input
-            type={props.inputType}
-            placeholder={props.placeholderText}
-            id={props.attrID}
-        />
-    );
+export default class InputField extends React.Component {
+    render() {
+        return(
+            <input
+                type={this.props.inputType}
+                placeholder={this.props.placeholderText}
+                id={this.props.attrID}
+            />
+        );
+    }
 }
-
-export default connect(() => ({}), () => ({}))(InputField);
