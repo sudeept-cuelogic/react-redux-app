@@ -7,6 +7,6 @@ export default class Button extends React.Component {
                 id={this.props.attrID}
                 type={this.props.buttonType}
                 onClick={this.props.onclickEvent}> {this.props.buttonText} </button>
-        )
+        );
     }
 }
