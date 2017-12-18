@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { SIGN_IN, USERNAME, PASSWORD } from '../constants/infoTexts';
-import { logIn, logOut } from '../actions/sessionActions';
+import { logIn } from '../actions/sessionActions';
 import Button from '../components/Button';
 import InputField from '../components/InputField';
 import LabelField from '../components/LabelField';

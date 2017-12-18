@@ -9,6 +9,7 @@ export default class Header extends React.Component {
                     attrID='logoutButton'
                     buttonType='button'
                     buttonText='Logout'
+                    onclickEvent={this.props.handleLogout}
                 />
             </div>
         );
