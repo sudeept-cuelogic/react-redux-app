@@ -1,5 +1,6 @@
 import React from 'react';
 import Profile from './Profile';
+import { Link } from 'react-router-dom';
 
 export default class NavPanel extends React.Component {
     render() {
@@ -9,7 +10,9 @@ export default class NavPanel extends React.Component {
                 <hr />
                 <div>
                 	<div> My Profile </div>
-                	<div> Users </div>
+                	<div>
+                        <Link to='/users'> Users </Link>
+                    </div>
                 </div>
             </div>
         );

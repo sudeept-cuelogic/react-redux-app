@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { HashRouter, Route } from 'react-router-dom';
 
-import InputField from '../components/InputField'
 import Session from './Session';
 import UserDashboard from './UserDashboard';
 
