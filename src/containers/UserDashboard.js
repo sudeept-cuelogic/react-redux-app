@@ -3,8 +3,17 @@ import { connect } from 'react-redux';
 import Header from '../components/Header';
 import NavPanel from '../components/NavPanel'
 import WorkPanel from './WorkPanel';
-import { logOut } from '../actions/sessionActions';
-import { changeUsername } from '../actions/profileActions';
+import { logOut, changeNameInSession } from '../actions/sessionActions';
+import { updateUserList } from '../actions/userActions';
+
+const mapDispatchToProps = dispatch => ({
+    onLogOut: () => dispatch(logOut()),
+    onUsernameChanged: (newUsername, newList) => {
+        dispatch(changeNameInSession(newUsername))
+        dispatch(updateUserList(newList))
+    }
+
+})
 
 class UserDashboard extends React.Component {
     constructor(props) {
@@ -15,7 +24,6 @@ class UserDashboard extends React.Component {
 
     _getNewUsersList = (oldUsername, newUsername) => {
         let newUsersList = [ ...this.props.usersList ];
-        debugger
         let newUser = newUsersList.filter((user, index) => {user['index'] = index; return user.username === oldUsername})[0];
         newUser['username'] = newUsername;
         newUsersList.splice(newUser.index, 1, newUser);
@@ -23,11 +31,12 @@ class UserDashboard extends React.Component {
     }
 
     _handleLogout = () => {
-        this.props.dispatch(logOut());
+        this.props.onLogOut();
     }
 
     _handleUsernameChange = (oldUsername, newUsername) => {
-        this.props.dispatch(changeUsername(newUsername, this._getNewUsersList(oldUsername, newUsername)));
+        let newUsersList = this._getNewUsersList(oldUsername, newUsername)
+        this.props.onUsernameChanged(newUsername, newUsersList);
     }
 
     render() {
@@ -41,4 +50,4 @@ class UserDashboard extends React.Component {
     }
 }
 
-export default connect(state => state)(UserDashboard);
+export default connect(state => state, mapDispatchToProps)(UserDashboard);

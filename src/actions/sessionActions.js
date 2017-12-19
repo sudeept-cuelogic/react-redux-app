@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT } from '../constants/actionTypes';
+import { LOGIN, LOGOUT, CHANGE_USERNAME } from '../constants/actionTypes';
 
 export const logIn = (username) => {
     return {
@@ -10,4 +10,11 @@ export const logIn = (username) => {
 
 export const logOut = () => {
     return { type: LOGOUT }
+}
+
+export const changeNameInSession = (newName) => {
+    return {
+        type: CHANGE_USERNAME,
+        newName: newName
+    }
 }

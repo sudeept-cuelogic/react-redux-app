@@ -1,18 +1,18 @@
-import { LOGIN, LOGOUT } from '../constants/actionTypes';
+import { LOGIN, LOGOUT, CHANGE_USERNAME } from '../constants/actionTypes';
 
 const initialState = {
-    session: {
-        user: '',
-        signedInAt: null
-    }
+    user: 'test_user1',
+    signedInAt: null
 }
 
 export default (state = initialState, action) => {
     switch(action.type) {
         case LOGIN :
-            return { ...state, session: { user: action.user, signedInAt: action.signedInAt } }
+            return { ...state, user: action.user, signedInAt: action.signedInAt }
         case LOGOUT :
-            return { ...state, session: { user: '', signedInAt: null } }
+            return { ...state, user: '', signedInAt: null }
+        case CHANGE_USERNAME :
+            return { ...state, user: action.newName }
         default :
             return state
     }

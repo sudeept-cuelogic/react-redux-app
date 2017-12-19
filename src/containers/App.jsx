@@ -5,28 +5,21 @@ import InputField from '../components/InputField'
 import Session from './Session';
 import UserDashboard from './UserDashboard';
 
-const mapStateToProps = state => {
-    return({
-        session: state.sessionReducer.session,
-        usersList: state.userReducer.users
-    })
-}
-
 class App extends React.Component {
     render() {
         if (_.isEmpty(this.props.session.user)) {
             return(
-                <Session usersList={this.props.usersList} />
+                <Session usersList={this.props.user.list} />
             );
         } else {
             return (
                 <UserDashboard
                     session={this.props.session}
-                    usersList={this.props.usersList}
+                    usersList={this.props.user.list}
                 />
             )
         }
     }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(state => state)(App);

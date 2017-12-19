@@ -1,4 +1,4 @@
-import { LIST_USERS } from '../constants/actionTypes';
+import { LIST_USERS, UPDATE_USER_LIST } from '../constants/actionTypes';
 
 // Private Methods starts here
 
@@ -21,13 +21,15 @@ const _generateUsers = () => {
 // Private methods ends here
 
 const initialState = {
-    users: _generateUsers()
+    list: _generateUsers()
 }
 
 export default (state = initialState, action) => {
     switch(action.type) {
         case LIST_USERS :
-            return { ...state, users: action.users }
+            return { ...state, list: action.users }
+        case UPDATE_USER_LIST :
+            return { ...state, list: action.newList }
         default :
             return state
     }

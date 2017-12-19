@@ -7,9 +7,7 @@ import InputField from '../components/InputField';
 import LabelField from '../components/LabelField';
 
 const mapDispatchToProps = dispatch => ({
-    onValidSession: username => {
-        dispatch(logIn(username));
-    }
+    onValidSession: username => dispatch(logIn(username))
 })
 
 class Session extends React.Component {

@@ -16,8 +16,9 @@ export default class Profile extends React.Component {
     }
 
     _handleOnBlur = event => {
-        this.setState({ editUsername: !this.state.editUsername });
-        this.props.usernameChange(this.state.username, event.target.value);
+        let oldName = this.state.username;
+        this.setState({ editUsername: !this.state.editUsername, username: event.target.value });
+        this.props.usernameChange(oldName, event.target.value);
     }
 
     getUsernameElement = () => {

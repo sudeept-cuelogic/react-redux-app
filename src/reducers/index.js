@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
 
-import profileReducer from './profileReducer';
-import sessionReducer from './sessionReducer';
-import userReducer from './userReducer';
+import profile from './profileReducer';
+import session from './sessionReducer';
+import user from './userReducer';
 
 const reducer = combineReducers({
-    profileReducer,
-    sessionReducer,
-    userReducer
+    profile,
+    session,
+    user
 })
 
 export default reducer;
