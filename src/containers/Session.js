@@ -7,8 +7,8 @@ import InputField from '../components/InputField';
 import LabelField from '../components/LabelField';
 
 const mapDispatchToProps = dispatch => ({
-    handleClick: username => {
-        console.log('username', username);
+    onValidSession: username => {
+        dispatch(logIn(username));
     }
 })
 
@@ -31,16 +31,13 @@ class Session extends React.Component {
 
     _handleClick = event => {
         let userObj = this.props.usersList.filter(user => user.username === this.state.username)[0];
-        (userObj && userObj.password === this.state.password) ?
-            this.props.dispatch(logIn(userObj.username))
-        :
-            console.log('session invalid');
+        if (userObj && userObj.password === this.state.password) {
+            this.props.onValidSession(userObj.username)
+        }
     }
 
     render() {
-        let divStyle = {
-            padding: '5px'
-        }
+        let divStyle = { padding: '5px' };
         return(
             <div id="sessionInfo" style={ {textAlign: 'center', paddingTop: '10%'} }>
                 <div style={divStyle}>
@@ -79,4 +76,4 @@ class Session extends React.Component {
     }
 }
 
-export default connect(state => state)(Session);
+export default connect(state => state, mapDispatchToProps)(Session);

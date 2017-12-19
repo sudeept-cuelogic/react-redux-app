@@ -6,7 +6,6 @@ import Session from './Session';
 import UserDashboard from './UserDashboard';
 
 const mapStateToProps = state => {
-    debugger
     return({
         session: state.sessionReducer.session,
         usersList: state.userReducer.users
