@@ -8,7 +8,7 @@
   "author": "Sudeep Tarlekar",
   "scripts": {
     "test": "",
-    "dev": "./node_modules/.bin/webpack-dev-server --config ./webpack/webpack.dev.config.js"
+    "dev": "./node_modules/.bin/webpack-dev-server --config ./webpack.dev.config.js"
   },
   "repository": {
     "type": "git",

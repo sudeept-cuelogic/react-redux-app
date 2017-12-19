@@ -1,10 +1,11 @@
 var webpack = require('webpack');
 var path = require('path');
 
-var parentDir = path.join(__dirname, '../');
+var parentDir = path.join(__dirname, './');
 
 var config = {
-    entry: [ path.join(parentDir, 'index.js') ],
+    entry: [ path.join(parentDir, 'src/index.js') ],
+    devtool: 'source-map',
     output: {
         path: parentDir + '/dist',
         filename: 'bundle.js'
