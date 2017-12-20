@@ -1,14 +1,12 @@
 import React from 'react';
 
-export default class InputField extends React.Component {
-    render() {
-        return(
-            <input
-                type={this.props.inputType}
-                placeholder={this.props.placeholderText}
-                id={this.props.attrID}
-                onBlur={this.props.onBlurEvent}
+const InputField = (props) => {
+    return <input
+                type={props.inputType}
+                placeholder={props.placeholderText}
+                id={props.attrID}
+                onBlur={props.onBlurEvent}
             />
-        );
-    }
 }
+
+export default InputField;
