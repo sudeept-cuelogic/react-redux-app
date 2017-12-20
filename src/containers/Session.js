@@ -28,9 +28,10 @@ class Session extends React.Component {
     }
 
     _handleClick = event => {
-        let userObj = this.props.usersList.filter(user => user.username === this.state.username)[0];
+        let userObj = this.props.user.list.filter(user => user.username === this.state.username)[0];
         if (userObj && userObj.password === this.state.password) {
-            this.props.onValidSession(userObj.username)
+            this.props.onValidSession(userObj.username);
+            this.props.history.replace('users');
         }
     }
 
