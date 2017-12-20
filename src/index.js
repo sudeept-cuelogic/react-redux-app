@@ -13,12 +13,7 @@ import UserDashboard from './containers/UserDashboard';
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
-            <Switch>
-                <Route path='/' component={App} />
-                <Route path='/users' component={UserDashboard} />
-                <Route path='/login' component={Session} />
-                <Route path='/my_profile' component={MyProfile} />
-            </Switch>
+            <App />
         </BrowserRouter>
     </Provider>,
     document.getElementById('app')

@@ -23,7 +23,7 @@ class UserDashboard extends React.Component {
     }
 
     _getNewUsersList = (oldUsername, newUsername) => {
-        let newUsersList = [ ...this.props.usersList ];
+        let newUsersList = [ ...this.props.user.list ];
         let newUser = newUsersList.filter((user, index) => {user['index'] = index; return user.username === oldUsername})[0];
         newUser['username'] = newUsername;
         newUsersList.splice(newUser.index, 1, newUser);
@@ -32,6 +32,7 @@ class UserDashboard extends React.Component {
 
     _handleLogout = () => {
         this.props.onLogOut();
+        this.props.history.replace('login');
     }
 
     _handleUsernameChange = (oldUsername, newUsername) => {
@@ -40,11 +41,12 @@ class UserDashboard extends React.Component {
     }
 
     render() {
+
         return(
             <div id="userDashboard">
                 <Header handleLogout={this.handleLogout}/>
                 <NavPanel username={this.props.session.user} handleUsernameChange={this.handleUsernameChange} />
-                <WorkPanel usersList={this.props.usersList} />
+                <WorkPanel usersList={this.props.user.list} />
             </div>
         );
     }
