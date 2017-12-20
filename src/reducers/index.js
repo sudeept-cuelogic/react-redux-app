@@ -8,8 +8,7 @@ import user from './userReducer';
 const reducer = combineReducers({
     profile,
     session,
-    user,
-    routing: routerReducer
+    user
 })
 
 export default reducer;
