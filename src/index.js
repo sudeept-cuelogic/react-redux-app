@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import store from './store';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import App from './containers/App';
 import MyProfile from './containers/MyProfile';
@@ -12,14 +12,14 @@ import UserDashboard from './containers/UserDashboard';
 
 ReactDOM.render(
     <Provider store={store}>
-        <HashRouter>
+        <BrowserRouter>
             <Switch>
                 <Route path='/' component={App} />
                 <Route path='/users' component={UserDashboard} />
                 <Route path='/login' component={Session} />
                 <Route path='/my_profile' component={MyProfile} />
             </Switch>
-        </HashRouter>
+        </BrowserRouter>
     </Provider>,
     document.getElementById('app')
 );
