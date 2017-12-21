@@ -24,12 +24,12 @@ class UserDashboard extends React.Component {
     return newUsersList;
   }
 
-  _handleLogout () {
+  handleLogout = () => {
     this.props.onLogOut();
     this.props.history.replace('login');
   }
 
-  _handleUsernameChange (oldUsername, newUsername) {
+  _handleUsernameChange = (oldUsername, newUsername) => {
     const newUsersList = this._getNewUsersList(oldUsername, newUsername);
     this.props.onUsernameChanged(newUsername, newUsersList);
   }
@@ -37,8 +37,8 @@ class UserDashboard extends React.Component {
   render () {
     return (
       <div id="userDashboard">
-        <Header handleLogout={this.handleLogout} />
-        <NavPanel username={this.props.session.user} handleUsernameChange={this.handleUsernameChange} />
+        <Header onLogOutEvent={this.handleLogout} />
+        <NavPanel username={this.props.session.user} handleUsernameChange={this._handleUsernameChange} />
         <WorkPanel usersList={this.props.user.list} />
       </div>
     );

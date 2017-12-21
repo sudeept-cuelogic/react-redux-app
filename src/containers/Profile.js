@@ -11,23 +11,22 @@ export default class Profile extends React.Component {
 
   getUsernameElement() {
     if (this.state.editUsername) {
-      return(
+      return (
         <input type="text" defaultValue={this.props.username} onBlur={this.handleOnBlur} />
-      )
-    } else {
-      return(
-        <div onClick={this.handleUsernameChange}>{this.props.username}</div>
-      )
-    }
+      );
+    };
+    return (
+      <div onClick={this.handleUsernameChange}>{this.props.username}</div>
+    );
   }
 
-  _handleOnBlur(event) {
+  _handleOnBlur = event => {
     let oldName = this.state.username;
     this.setState({ editUsername: !this.state.editUsername, username: event.target.value });
     this.props.usernameChange(oldName, event.target.value);
   }
 
-  _handleUsernameChange() {
+  _handleUsernameChange = () => {
     this.setState({ editUsername: !this.state.editUsername });
   }
 

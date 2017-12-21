@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class MyProfile extends React.Component {
+export default class MyProfile extends React.PureComponent {
   render () {
     return (
       <div>
