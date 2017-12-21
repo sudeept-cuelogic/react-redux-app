@@ -1,20 +1,16 @@
 import { LOGIN, LOGOUT, CHANGE_USERNAME } from '../constants/actionTypes';
 
-export const logIn = (username) => {
-    return {
-        type: LOGIN,
-        user: username,
-        signedInAt: new Date()
-    }
-}
+export const logIn = username => ({
+  type: LOGIN,
+  user: username,
+  signedInAt: new Date()
+});
 
-export const logOut = () => {
-    return { type: LOGOUT }
-}
+export const logOut = () => ({
+  type: LOGOUT
+});
 
-export const changeNameInSession = (newName) => {
-    return {
-        type: CHANGE_USERNAME,
-        newName: newName
-    }
-}
+export const changeNameInSession = newName => ({
+  type: CHANGE_USERNAME,
+  newName
+});
