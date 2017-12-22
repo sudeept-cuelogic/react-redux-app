@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 import { logOut, changeNameInSession } from '../actions/sessionActions';
 import { updateUserList } from '../actions/userActions';
@@ -23,6 +24,13 @@ class UserDashboard extends React.Component {
       username: props.session.user
     };
   }
+
+  componentWillMount () {
+    debugger
+    if (_.isEmpty(this.props.session.user)) {
+      this.props.history.push('/login');
+    }
+  };
 
   getNewUsersList (oldUsername, newUsername) {
     const newUsersList = [...this.props.user.list];
