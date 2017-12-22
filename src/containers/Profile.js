@@ -20,13 +20,14 @@ export default class Profile extends React.Component {
     );
   }
 
-  _handleOnBlur = event => {
+  handleOnBlur = event => {
+    let newUsername = event.target.value;
     let oldName = this.state.username;
-    this.setState({ editUsername: !this.state.editUsername, username: event.target.value });
-    this.props.usernameChange(oldName, event.target.value);
+    this.setState((prevState) => ({ editUsername: !prevState.editUsername, username: newUsername }));
+    this.props.usernameChange(oldName, newUsername);
   }
 
-  _handleUsernameChange = () => {
+  handleUsernameChange = () => {
     this.setState({ editUsername: !this.state.editUsername });
   }
 

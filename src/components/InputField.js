@@ -6,6 +6,8 @@ const InputField = (props) => {
                 placeholder={props.placeholderText}
                 id={props.attrID}
                 onBlur={props.onBlurEvent}
+                onClick={props.onClickEvent}
+                defaultValue={props.valueText}
             />
 }
 
