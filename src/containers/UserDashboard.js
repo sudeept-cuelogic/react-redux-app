@@ -5,7 +5,7 @@ import { logOut, changeNameInSession } from '../actions/sessionActions';
 import { updateUserList } from '../actions/userActions';
 import Header from '../components/Header';
 import NavPanel from '../components/NavPanel';
-import WorkPanel from './WorkPanel';
+import UserList from '../components/UserList';
 
 const mapDispatchToProps = dispatch => ({
   onLogOut: () => dispatch(logOut()),
@@ -29,17 +29,17 @@ class UserDashboard extends React.Component {
     this.props.history.replace('login');
   }
 
-  _handleUsernameChange = (oldUsername, newUsername) => {
+  handleUsernameChange = (oldUsername, newUsername) => {
     const newUsersList = this._getNewUsersList(oldUsername, newUsername);
     this.props.onUsernameChanged(newUsername, newUsersList);
   }
 
-  render () {
+  render() {
     return (
       <div id="userDashboard">
         <Header onLogOutEvent={this.handleLogout} />
-        <NavPanel username={this.props.session.user} handleUsernameChange={this._handleUsernameChange} />
-        <WorkPanel usersList={this.props.user.list} />
+        <NavPanel username={this.props.session.user} handleUsernameChangeEvent={this.handleUsernameChange} />
+        <UserList usersList={this.props.user.list} />
       </div>
     );
   }
