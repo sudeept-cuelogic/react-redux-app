@@ -1,8 +1,6 @@
 import { SHOW_PROFILE, HIDE_PROFILE } from '../constants/actionTypes';
 
-const initialState = {
-  showProfile: false
-};
+const initialState = { showProfile: false };
 
 export default (state = initialState, action) => {
   switch (action.type) {

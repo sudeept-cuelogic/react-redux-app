@@ -2,7 +2,7 @@ import { LOGIN, LOGOUT, CHANGE_USERNAME } from '../constants/actionTypes';
 
 const initialState = {
   user: '',
-  signedInAt: null
+  signedInAt: null,
 };
 
 export default (state = initialState, action) => {

@@ -7,7 +7,7 @@ import user from './userReducer';
 const reducer = combineReducers({
   profile,
   session,
-  user
+  user,
 });
 
 export default reducer;
