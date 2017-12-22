@@ -45,8 +45,9 @@ class UserDashboard extends React.Component {
   handleOnBlur = (event) => {
     let newUsername = event.target.value;
     let oldName = this.state.username;
-    this.handleUsernameChange(oldName, newUsername);
+    debugger
     this.setState((prevState) => ({ editUsername: !prevState.editUsername, username: newUsername }));
+    this.handleUsernameChange(oldName, newUsername);
   }
 
   onUsernameClicked = () => {
@@ -60,7 +61,7 @@ class UserDashboard extends React.Component {
         <NavPanel 
           username={this.props.session.user} 
           onUsernameClicked={this.onUsernameClicked} 
-          onBlurEvent={this.handleOnBlur}
+          onBlurEvent={this.handleOnBlur.bind(this)}
           editUsername={this.state.editUsername}
         />
         <UserList usersList={this.props.user.list} />
