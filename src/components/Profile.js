@@ -3,7 +3,6 @@ import React from 'react';
 import InputField from './InputField';
 
 const getUserNameField = ({onBlurEvent, onUsernameClicked, username, editUsername}) => {
-  debugger
   if (editUsername) {
     return (
       <InputField
