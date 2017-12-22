@@ -5,11 +5,11 @@ import Profile from './Profile';
 const NavPanel = (props) => {
   return (
     <div id="navigationPanel" style={{ float: 'left', width: '20%', backgroundColor: 'antiquewhite' }}>
-      <Profile 
-        username={props.username} 
-        onUsernameClicked={props.onUsernameClicked} 
-        onBlurEvent={props.onBlurEvent}
-        editUsername={props.editUsername}
+      <Profile
+        username={ props.username }
+        onUsernameClicked={ props.onUsernameClicked }
+        onBlurEvent={ props.onBlurEvent }
+        editUsername={ props.editUsername }
       />
       <hr />
       <div>

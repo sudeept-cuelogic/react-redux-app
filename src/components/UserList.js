@@ -2,10 +2,10 @@ import React from 'react';
 
 const getTableRow = (user) => {
   return(
-    <tr key={`row_${user.username}`}>
-      <td>{user.username}</td>
-      <td>{user.email}</td>
-      <td>{user.age} / {user.gender}</td>
+    <tr key={ `row_${user.username}` }>
+      <td>{ user.username }</td>
+      <td>{ user.email }</td>
+      <td>{ user.age } / { user.gender }</td>
     </tr>
   );
 };

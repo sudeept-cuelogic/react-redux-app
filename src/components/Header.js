@@ -8,7 +8,7 @@ const Header = (props) => {
         attrID="logoutButton"
         buttonType="button"
         buttonText="Logout"
-        onclickEvent={props.onLogOutEvent}
+        onclickEvent={ props.onLogOutEvent }
       />
     </div>
   );
