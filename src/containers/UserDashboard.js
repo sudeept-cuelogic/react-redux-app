@@ -20,11 +20,11 @@ class UserDashboard extends React.Component {
     super(props);
     this.state = {
       editUsername: false,
-      username: props.username
+      username: props.session.user
     };
   }
 
-  _getNewUsersList (oldUsername, newUsername) {
+  getNewUsersList (oldUsername, newUsername) {
     const newUsersList = [...this.props.user.list];
     const newUser = newUsersList.filter((user, index) => { user['index'] = index; return user.username === oldUsername })[0];
     newUser.username = newUsername;
@@ -38,14 +38,14 @@ class UserDashboard extends React.Component {
   }
 
   handleUsernameChange = (oldUsername, newUsername) => {
-    const newUsersList = this._getNewUsersList(oldUsername, newUsername);
+    const newUsersList = this.getNewUsersList(oldUsername, newUsername);
     this.props.onUsernameChanged(newUsername, newUsersList);
   }
 
-  handleOnBlur = event => {
-    debugger
+  handleOnBlur = (event) => {
     let newUsername = event.target.value;
     let oldName = this.state.username;
+    this.handleUsernameChange(oldName, newUsername);
     this.setState((prevState) => ({ editUsername: !prevState.editUsername, username: newUsername }));
   }
 

@@ -1,7 +1,7 @@
 import { LOGIN, LOGOUT, CHANGE_USERNAME } from '../constants/actionTypes';
 
 const initialState = {
-  user: '',
+  user: 'test_user1',
   signedInAt: null
 };
 
