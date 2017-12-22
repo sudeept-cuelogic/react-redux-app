@@ -2,7 +2,7 @@ import { UPDATE_USER_LIST } from '../constants/actionTypes';
 
 const updateUserList = newList => ({
   type: UPDATE_USER_LIST,
-  newList
+  newList,
 });
 
 export default updateUserList;

@@ -4,7 +4,7 @@ import Profile from './Profile';
 
 const NavPanel = (props) => {
   return (
-    <div id="navigationPanel" style={{ float: 'left', width: '20%', backgroundColor: 'antiquewhite' }}>
+    <div id='navigationPanel' style={{ float: 'left', width: '20%', backgroundColor: 'antiquewhite' }}>
       <Profile
         username={ props.username }
         onUsernameClicked={ props.onUsernameClicked }
