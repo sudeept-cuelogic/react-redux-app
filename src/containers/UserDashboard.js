@@ -45,7 +45,6 @@ class UserDashboard extends React.Component {
   handleOnBlur = (event) => {
     let newUsername = event.target.value;
     let oldName = this.state.username;
-    debugger
     this.setState((prevState) => ({ editUsername: !prevState.editUsername, username: newUsername }));
     this.handleUsernameChange(oldName, newUsername);
   }
