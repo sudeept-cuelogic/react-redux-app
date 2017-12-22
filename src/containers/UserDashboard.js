@@ -16,6 +16,14 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class UserDashboard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      editUsername: false,
+      username: props.username
+    };
+  }
+
   _getNewUsersList (oldUsername, newUsername) {
     const newUsersList = [...this.props.user.list];
     const newUser = newUsersList.filter((user, index) => { user['index'] = index; return user.username === oldUsername })[0];
@@ -34,11 +42,27 @@ class UserDashboard extends React.Component {
     this.props.onUsernameChanged(newUsername, newUsersList);
   }
 
+  handleOnBlur = event => {
+    debugger
+    let newUsername = event.target.value;
+    let oldName = this.state.username;
+    this.setState((prevState) => ({ editUsername: !prevState.editUsername, username: newUsername }));
+  }
+
+  onUsernameClicked = () => {
+    this.setState((prevState) => ({ editUsername: !prevState.editUsername }));
+  }
+
   render() {
     return (
       <div id="userDashboard">
         <Header onLogOutEvent={this.handleLogout} />
-        <NavPanel username={this.props.session.user} handleUsernameChangeEvent={this.handleUsernameChange} />
+        <NavPanel 
+          username={this.props.session.user} 
+          onUsernameClicked={this.onUsernameClicked} 
+          onBlurEvent={this.handleOnBlur}
+          editUsername={this.state.editUsername}
+        />
         <UserList usersList={this.props.user.list} />
       </div>
     );
