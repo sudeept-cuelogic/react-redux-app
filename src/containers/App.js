@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, BrowserRouter} from 'react-router-dom';
 
 import ProfileDetail from './ProfileDetail';
 import Session from './Session';
@@ -8,12 +8,15 @@ import UserDashboard from './UserDashboard';
 
 class App extends React.PureComponent {
   render() {
+    debugger
     return(
-      <Switch>
-        <Route path='/login' component={Session} />
-        <Route path='/users' component={UserDashboard} />
-        <Route path='/profile' component={ProfileDetail} />
-      </Switch>
+      <BrowserRouter>
+        <Switch>
+          <Route path='/login' component={Session}/>
+          <Route path='/users' component={UserDashboard} />
+          <Route path='/profile/:username' component={ProfileDetail} />
+        </Switch>
+      </BrowserRouter>
     );
   }
 }

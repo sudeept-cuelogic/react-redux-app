@@ -49,25 +49,25 @@ class Session extends React.Component {
             onBlurEvent={this.handleBlur}
           />
         </div>
-          <div style={divStyle}>
-              <LabelField
-                  forText='password'
-                  infoText={PASSWORD}
-              />
-              <InputField
-                  placeholderText={PASSWORD}
-                  attrID='password'
-                  inputType='password'
-                  onBlurEvent={this.handleBlur}
-              />
-          </div>
-          <Button
-              attrID='signIn'
-              buttonType='button'
-              buttonText={SIGN_IN}
-              onclickEvent={this.handleClick}
-              elementStyle={ {backgroundColor: '#61DAFB'} }
-          />
+        <div style={divStyle}>
+            <LabelField
+              forText='password'
+              infoText={PASSWORD}
+            />
+            <InputField
+              placeholderText={PASSWORD}
+              attrID='password'
+              inputType='password'
+              onBlurEvent={this.handleBlur}
+            />
+        </div>
+        <Button
+            attrID='signIn'
+            buttonType='button'
+            buttonText={SIGN_IN}
+            onclickEvent={this.handleClick}
+            elementStyle={ {backgroundColor: '#61DAFB'} }
+        />
       </div>
     );
   }

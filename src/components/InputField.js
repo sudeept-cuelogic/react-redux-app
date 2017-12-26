@@ -9,6 +9,7 @@ const InputField = (props) => {
       onBlur={ props.onBlurEvent }
       onClick={ props.onClickEvent }
       defaultValue={ props.valueText }
+      ref={props.inputRef}
     />
   );
 };

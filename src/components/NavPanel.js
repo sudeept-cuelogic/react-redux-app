@@ -14,7 +14,7 @@ const NavPanel = (props) => {
       <hr />
       <div>
         <div>
-          <Link to='/my_profile'> My Profile </Link>
+          <Link to={`/profile/${props.username}`}> My Profile </Link>
         </div>
         <div>
           <Link to='/users'> Users </Link>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 
 import { logOut, changeNameInSession } from '../actions/sessionActions';
 import { updateUserList } from '../actions/userActions';
@@ -71,7 +71,7 @@ class UserDashboard extends React.Component {
           onBlurEvent={this.handleOnBlur.bind(this)}
           editUsername={this.state.editUsername}
         />
-        <UserList usersList={this.props.user.list} />
+        <Route path='users' component={UserList} usersList={this.props.user.list} />
       </div>
     );
   }
